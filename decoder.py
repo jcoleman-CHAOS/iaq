@@ -1,10 +1,10 @@
 import numpy as np
 
-e = "temp.c,3 humidity,2 co2.ppm,2 voc.ppm,1"
+e = "temp.c,3 humidity,2 co2.ppm,2 voc.ppm,1 "
 d = "Manifold_hot:20.2224 Manifold_cold1:18.1245 Manifold_cold2:17.1234 5':83 10':72 5':221 10':268 voc:50"
 
 
-def one_fell_swoop(e, d):
+def decode_event(e, d):
     # Split the event and data from Particle SSEClient
     key = e.split()
     _values = d.split()
@@ -87,5 +87,4 @@ def one_fell_swoop(e, d):
 
     return complete_arr
 
-# print one_fell_swoop(e, d)
 
