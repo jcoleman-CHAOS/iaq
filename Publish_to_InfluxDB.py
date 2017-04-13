@@ -13,7 +13,11 @@ import credentials as cd
 
 # particles to watch
 good_particles = [
-    '450035000a51353335323536'
+    '450035000a51353335323536',
+    # '27001c001347353136383631',
+    '290041000f47353136383631',
+    '30001d001447353136383631',
+    '2a003f000347353137323334'
 ]
 
 # make sure this is current
@@ -366,7 +370,7 @@ class SSEClient:
                         },
                         "time": _time,
                         "fields": {
-                            "value": r[1],
+                            "value": float(r[1]),
                         }
                     }
                 ]
@@ -383,9 +387,9 @@ d.connected_particles()
 s = SSEClient()
 print '\nStarting SSE Client...'
 while True:
-    # try:
-    s.start_sse()
-    # except:
-    #     print colored("FATAL ERROR, restarting", 'red')
+    try:
+        s.start_sse()
+    except:
+        print colored("FATAL ERROR, restarting", 'red')
 
 
